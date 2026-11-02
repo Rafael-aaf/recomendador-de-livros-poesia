@@ -1,0 +1,9 @@
+context/
+scratch/
+data/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode
