@@ -5,7 +5,7 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 from src.config import BOOKS_PATH
-from src.embeddings.settings import MODELS, MIN_WORDS, PROCESSED_DIR, embeddings_path
+from src.embeddings.settings import MODELS, MIN_WORDS, PROCESSED_DIR, embeddings_path, PASSAGE_PREFIX
 
 
 def load_valid_books():
@@ -17,6 +17,7 @@ def load_valid_books():
 
 def main(model_key="minilm"):
     ids, texts = load_valid_books()
+    texts = [PASSAGE_PREFIX.get(model_key, "") + t for t in texts]
     print(f"{len(ids):,} livros com sinopse válida")
     model = SentenceTransformer(MODELS[model_key])
     emb = model.encode(texts, batch_size=64, normalize_embeddings=True, show_progress_bar=True)
