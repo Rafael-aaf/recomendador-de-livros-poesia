@@ -71,7 +71,7 @@ elif st.button("Gerar recomendações", type="primary"):
             }
         )
         table.index = range(1, len(table) + 1)
-        st.dataframe(table)
+        st.dataframe(table, height=(15 + 1) * 35 + 3)
 
         st.markdown(
             """
