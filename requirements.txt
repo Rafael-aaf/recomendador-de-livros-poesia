@@ -7,3 +7,4 @@ tqdm==4.70.0
 matplotlib==3.11.1
 jupyter==1.1.1
 pyarrow==26.0.0
+streamlit==1.52.2
